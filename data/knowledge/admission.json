@@ -1,0 +1,308 @@
+{
+  "_meta": {
+    "source": "MFU Admission Guide 2-2026 (Undergraduate & Postgraduate, International Applicants)",
+    "university": "Mae Fah Luang University (MFU)",
+    "location": "Chiang Rai, Thailand",
+    "academic_year": 2026,
+    "applies_to_semester": 2,
+    "audience": "International applicants (non-Thai nationality)",
+    "currency": "THB"
+  },
+
+  "contact": {
+    "email": "interadmission@mfu.ac.th",
+    "admission_guide_url": "https://en.mfu.ac.th/admission/admission-guide.html",
+    "online_application_url": "https://en.mfu.ac.th/admission/admission-guide.html",
+    "application_system_instructions": "https://shorturl.asia/uyjAk",
+    "school_of_liberal_arts_tel": "+66 (0) 5391 6731",
+    "liberal_arts_tel_purpose": "MFU-TEP English proficiency test enquiries"
+  },
+
+  "undergraduate": {
+    "eligibility": [
+      "Applicants must hold a non-Thai nationality and possess a foreign passport, or have a certificate of personal status issued by an authorised organisation.",
+      "Applicants must demonstrate a genuine interest in studying at Mae Fah Luang University.",
+      "Applicants must not have any conditions that could affect their studies.",
+      "Applicants must be currently enrolled in Grade 12 or Year 13, or have graduated from Grade 12 or Year 13 from an international school in Thailand certificated by the Office of the Private Education Commission (OPEC), or have graduated from upper secondary education or equivalent under one of the accepted systems listed below."
+    ],
+    "accepted_qualification_systems": {
+      "british": {
+        "requirement": "Results from at least 3 subjects in one of the following:",
+        "options": [
+          "GCE 'A' Level with grades A*-E",
+          "LRN International A Levels with grades A*-E",
+          "Cambridge Pre-U with grades M1 or D1-D3"
+        ]
+      },
+      "american_canadian": {
+        "options": [
+          "GED taken prior to May 2017: total score of not less than 2,250 across 5 subjects, with a minimum of 410 in each subject",
+          "GED taken from May 2017 onwards: a score of at least 145 points in each of the 4 subjects"
+        ]
+      },
+      "new_zealand": {
+        "options": [
+          "Graduates from Academic Year 2024 onwards: NCEA under NZQA with at least 80 credits achieved, including NCEA Level 2 or above 60 credits, and not less than 20 credits from the Literacy and Numeracy co-requisite subjects.",
+          "Graduates from Academic Year 2010-2023: NCEA under NZQA with at least 80 credits, consisting of subjects at Level 2 or higher totalling not less than 60 credits, and subjects at Level 1 or higher totalling not less than 20 credits. ESOL is counted as 1 subject. The graduate must receive an NCEA Level 2 certificate, Record of Achievement, and a certificate verifying the level, number of subjects and credits from NZQA.",
+          "Graduates from Academic Year 2009: NCEA under NZQA at Level 2 or higher in at least 5 different subjects, at least 60 credits, including 2 compulsory subjects - English (literacy) at Level 2 or higher with at least 4 credits, and Mathematics (numeracy) at Level 2 or higher with at least 4 credits. ESOL is not counted. The graduate must receive a Record of Achievement and a certificate from NZQA."
+        ]
+      },
+      "international_baccalaureate": {
+        "options": [
+          "International Baccalaureate Diploma with a total score of 5 subjects and 1 elective course with a minimum score of 24, and passing the Extended Essay (EE), Theory of Knowledge (TOK) and Creativity, Action & Service (CAS) criteria according to IBO criteria",
+          "IB Diploma Course Results (IBCR) with not less than grade 3 in at least 5 different subjects",
+          "IBCP Certificate: not less than grade 3 in at least 2 IB Diploma Programme courses, passing the Career-related Study Track subjects, and passing the Reflective Project with a grade of D or higher"
+        ]
+      },
+      "btec": {
+        "options": [
+          "Business & Technology Education Council (BTEC) qualifications"
+        ]
+      },
+      "other": "Other systems equivalent to the upper secondary education level or the highest basic education curriculum of each country (Secondary School), or from an institution certified by the relevant government or international organisations."
+    },
+    "english_language_requirements": {
+      "rule": "Applicants must meet the requirement in either option 1 or option 2.",
+      "option_1_test_scores": {
+        "IELTS": 5,
+        "TOEFL iBT": 35,
+        "TOEFL ITP (Institutional Testing Program)": 337,
+        "TOEIC": 400,
+        "Placement Test": "60%"
+      },
+      "validity": "The test result should not exceed two years since the examination date.",
+      "option_2": "Applicants must have graduated from a high school where English is the primary medium of instruction, and must submit a Certificate of English as Medium of Instruction issued by the school.",
+      "conditional_admission": [
+        "If an applicant has neither option 1 nor option 2 but meets the other programme requirements, the School may accept them with conditions.",
+        "The applicant must take a Placement Test prepared by the School of Liberal Arts. The Placement Test fee is 500 Baht per test.",
+        "A passing score of 60% means the applicant is accepted to study by the School.",
+        "If the applicant does not achieve 60%, they must enrol in the Intensive English Courses for one semester during their first semester of study until they achieve a passing grade."
+      ]
+    },
+    "thai_language_requirements": {
+      "full_proficiency_required": {
+        "description": "Applicants must demonstrate proficiency in Thai listening, speaking, reading and writing.",
+        "programmes": ["Laws", "Public Health", "Traditional Chinese Medicine"]
+      },
+      "reading_writing_required": {
+        "description": "Applicants must demonstrate proficiency in Thai reading and writing.",
+        "programmes": ["Applied Thai Traditional Medicine"]
+      }
+    },
+    "required_documents": [
+      "A copy of passport",
+      "A copy of high school graduate certificate (English) - only for full-time applicants",
+      "A copy of high school transcript (English)",
+      "A one-page statement of purpose",
+      "English proficiency test result (if any)",
+      "A Certificate of English as Medium of Instruction (if any)"
+    ],
+    "document_notes": [
+      "Exchange students are not required to submit a copy of the high school graduate certificate."
+    ],
+    "costs": {
+      "tuition_fee_per_semester": { "min": 32500, "max": 78000, "note": "Varies depending on the programme selected." },
+      "application_fee": { "amount": 300, "when": "Paid upon registration" },
+      "placement_test_fee": { "amount": 500 },
+      "on_campus_dormitory_fee_per_semester": { "min": 4000, "max": 8000 },
+      "damage_insurance": { "amount": 2000, "note": "Refundable after graduation if there is no outstanding balance on the student's university account." },
+      "public_facility_fee_per_semester": { "amount": 1200 },
+      "freshers_package": { "amount": 690 },
+      "health_insurance_annual": { "amount": 2000 },
+      "how_to_live_and_learn_on_campus_programme": { "amount": 1100 },
+      "bank_account_and_new_student_id_card_fee": { "amount": 200, "note": "ATM card" },
+      "health_check_at_mfu_hospital": {
+        "default": 590,
+        "note": "Varies depending on the programme.",
+        "exceptions": {
+          "Occupational Health and Safety": 790,
+          "Public Health": 1070,
+          "Applied Thai Traditional Medicine": 1070,
+          "Nursing Science": 1130,
+          "Traditional Chinese Medicine": 1230,
+          "Physical Therapy": 1560
+        }
+      },
+      "estimated_total": { "min": 45080, "max": 95450 },
+      "disclaimer": "MFU reserves the right to adjust tuition fees without prior notice."
+    }
+  },
+
+  "postgraduate": {
+    "master_eligibility": [
+      "Applicants must have graduated from a curriculum that is accredited by the Ministry of Education or the university council.",
+      "The qualifications of applicants must meet the requirements set by each programme.",
+      "Applicants must have a bachelor's degree or equivalent.",
+      "The English proficiency requirement depends on the programme applied for."
+    ],
+    "doctoral_eligibility": [
+      "Applicants must have graduated from a curriculum that is accredited by the Ministry of Education or the university council.",
+      "The qualifications of applicants must meet the requirements set by each programme.",
+      "Applicants must have a master's degree or equivalent.",
+      "Applicants must have a bachelor's degree with honours or equivalent.",
+      "Applicants must submit English proficiency test results according to the criteria below."
+    ],
+    "english_proficiency_requirements": {
+      "applies_to": "Doctoral programmes (and master's programmes where the programme sets the requirement)",
+      "scores": {
+        "TOEFL iBT": 72,
+        "TOEFL ITP": 543,
+        "IELTS": 6,
+        "CU-TEP": 70,
+        "MFU-TEP (B2)": 60,
+        "TOEIC (Listening and Reading)": 785
+      },
+      "validity": "The test results must not be older than 2 years from the date of the exam.",
+      "higher_programme_criteria": "In the case that any curriculum has set higher scores, the criteria set by the programme admission shall be used.",
+      "conditional_admission": [
+        "Applicants without English proficiency test results, or with results lower than the criteria, will be accepted to study under certain conditions.",
+        "They must submit English proficiency test results meeting the table above within the first semester of their study, OR they must enrol in and pass the 'Academic English for Graduate Studies 1' course.",
+        "Otherwise they are considered to have not passed the admission process and their student status will be revoked.",
+        "Applicants are allowed to submit the result of the 'Academic English for Graduate Studies 1' course (S grade) that is no older than two years since the announcement of the grade result."
+      ]
+    },
+    "mfu_tep": {
+      "full_name": "MFU-TEP (The Test of English Proficiency)",
+      "frequency": "Held 3-5 times a year. Exact dates are announced by the School of Liberal Arts, MFU.",
+      "sections": ["Listening", "Grammar and Written Expression", "Reading"],
+      "fee": 1000,
+      "payment_methods": [
+        "Cash at the Finance and Accounting Division, MFU",
+        "Bank transfer to the University's bank account 672-0-10817-1, Bangkok Bank Public Company Limited, Mae Fah Luang University Branch"
+      ],
+      "contact": "School of Liberal Arts, MFU. Tel: +66 (0) 5391 6731"
+    },
+    "graduation_conditions": "Students eligible to graduate must have an English proficiency level corresponding to the requirement for graduate students as listed in the MFU announcement 'English Proficiency Test Requirements for Graduate Students at Mae Fah Luang University', in accordance with MFU's Regulations on Graduate Studies.",
+    "other_conditions": [
+      "The university will not refund the application fee and the tuition fee under any circumstances.",
+      "Once applicants have submitted the application form, it means they have already studied and verified their qualifications. If it is found later that an applicant is disqualified, they will not be eligible for the admission examination."
+    ],
+    "required_documents": {
+      "master": [
+        "A copy of passport",
+        "A copy of Bachelor's Degree certificate (English)",
+        "A copy of Bachelor's Degree transcript (English)",
+        "A one-page statement of purpose",
+        "English proficiency test result (if any)",
+        "Thesis proposal (if any)"
+      ],
+      "doctoral": [
+        "A copy of passport",
+        "A copy of Master's Degree certificate (English)",
+        "A copy of Master's Degree transcript (English)",
+        "A one-page statement of purpose",
+        "English proficiency test result",
+        "Thesis proposal"
+      ]
+    },
+    "costs": {
+      "tuition_fee_per_semester": { "min": 45500, "max": 117000, "note": "Varies depending on the programme selected." },
+      "application_fee": { "amount": 300, "when": "Paid upon registration" },
+      "registration_fee": { "amount": 2000 },
+      "damage_insurance": { "amount": 5000, "note": "Refundable after graduation if there is no outstanding balance on the student's university account." },
+      "public_facility_fee_per_semester": { "amount": 1200 },
+      "sport_facility_maintenance_and_development_annual": { "amount": 400, "note": "Only for programmes taught at Chiang Rai." },
+      "health_insurance_annual": { "amount": 2000 },
+      "accident_insurance_annual": { "amount": 200, "note": "Only for programmes taught at Chiang Rai." },
+      "bank_account_and_new_student_id_card_fee": { "amount": 200, "note": "ATM card" },
+      "estimated_total": { "min": 56800, "max": 128100 },
+      "disclaimer": "MFU reserves the right to adjust tuition fees without prior notice."
+    }
+  },
+
+  "overall_schedule_2026": {
+    "semester_1": {
+      "application_period": "January - May 2026",
+      "study_period": "August - December 2026"
+    },
+    "semester_2": {
+      "application_period": "July - September 2026",
+      "study_period": "January - May 2027"
+    }
+  },
+
+  "second_semester_2026_admission_rounds": {
+    "applies_to": "Both undergraduate and postgraduate applications for the 2nd semester of Academic Year 2026",
+    "rounds": [
+      { "round": 1, "application_period": "1 - 31 July 2026", "announcement": "11 August 2026" },
+      { "round": 2, "application_period": "1 - 31 August 2026", "announcement": "11 September 2026" },
+      { "round": 3, "application_period": "1 - 30 September 2026", "announcement": "14 October 2026" },
+      { "round": 4, "application_period": "1 - 31 October 2026", "announcement": "10 November 2026" }
+    ],
+    "announcement_channel": "The online application system",
+    "remarks": [
+      "Applications for each programme are reviewed every one month until the seats are filled. Available seats for a programme may be filled before the application deadline. If the application deadline of the last round has passed, all programmes will be closed for applications even if some seats may still be available.",
+      "Submission of an application does not guarantee acceptance.",
+      "Applicants can select only one programme when applying to MFU."
+    ]
+  },
+
+  "academic_calendar_2026": {
+    "first_semester": {
+      "first_day_of_classes": "3 August 2026",
+      "midterm_examinations": "28 September - 4 October 2026",
+      "last_day_of_classes": "22 November 2026",
+      "final_examinations": "23 November - 4 December 2026",
+      "end_of_semester": "5 December 2026"
+    },
+    "second_semester": {
+      "first_day_of_classes": "4 January 2027",
+      "midterm_examinations": "1 - 7 March 2027",
+      "last_day_of_classes": "25 April 2027",
+      "final_examinations": "26 April - 7 May 2027",
+      "end_of_semester": "8 May 2027"
+    },
+    "summer_session": {
+      "first_day_of_classes": "31 May 2027",
+      "last_day_of_classes": "11 July 2027",
+      "final_examinations": "12 - 16 July 2027",
+      "end_of_summer_session": "17 July 2027"
+    },
+    "end_of_academic_year": "1 August 2027"
+  },
+
+  "five_steps_to_apply": [
+    {
+      "step": 1,
+      "title": "Choose Your Programme",
+      "details": [
+        "Choose one programme you wish to apply for from the list of programmes offered for international students.",
+        "For further information visit https://en.mfu.ac.th/admission/admission-guide.html or email interadmission@mfu.ac.th"
+      ]
+    },
+    {
+      "step": 2,
+      "title": "Submit Application Form",
+      "details": [
+        "Apply online at https://en.mfu.ac.th/admission/admission-guide.html",
+        "System instructions: https://shorturl.asia/uyjAk",
+        "Postgraduate applicants also make the payment of the application fee at this step."
+      ]
+    },
+    {
+      "step": 3,
+      "title": "Receive Information",
+      "details": [
+        "An interview can be held by telephone or Skype video call. Other documents may be required; further notification will be sent in that case.",
+        "A list of successful applicants will be announced on the online application system."
+      ]
+    },
+    {
+      "step": 4,
+      "title": "Complete New Student Information",
+      "details": [
+        "Complete all personal information and upload all necessary documents to the new student registration system.",
+        "Pay tuition fees and all expenses in Thai Baht (THB).",
+        "Applicants will receive an official acceptance letter with the necessary visa request documents and acceptance package via email or post."
+      ]
+    },
+    {
+      "step": 5,
+      "title": "Arrive at the MFU Campus",
+      "details": [
+        "Inform the Global Relations Division of your arrival details for pickup services from Mae Fah Luang - Chiang Rai International Airport or Chiang Rai Bus Station, at least 1 week in advance.",
+        "Undergraduate international students are guaranteed dormitory rooms on campus for their first year of study at MFU."
+      ]
+    }
+  ]
+}

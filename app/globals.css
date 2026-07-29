@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mfu: #7a1b2e;
+  --color-mfu-dark: #5d1423;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}

@@ -1,0 +1,659 @@
+{
+  "_meta": {
+    "source": "MFU Admission Guide 2-2026 (Undergraduate & Postgraduate, International Applicants)",
+    "academic_year": 2026,
+    "applies_to_semester": 2,
+    "currency": "THB",
+    "tuition_basis": "per semester unless stated otherwise",
+    "note": "MFU reserves the right to adjust tuition fees without prior notice.",
+    "important": "A programme is only open for 2nd-semester application if expected_intake.semester_2 is a number. Programmes marked null for semester_2 are 1st-semester intake only."
+  },
+
+  "undergraduate": [
+    {
+      "school": "Agro-Industry",
+      "degree": "B.Sc.",
+      "programme": "Innovative Food Science and Technology",
+      "expected_intake": { "semester_1": 20, "semester_2": null },
+      "tuition_per_semester": 32500,
+      "special_requirements": [
+        "Submit an essay in English on the topic 'Inspiration for studying in Food Science and Technology', not exceeding one A4 page."
+      ]
+    },
+    {
+      "school": "Agro-Industry",
+      "degree": "B.Sc.",
+      "programme": "Agri-Food Logistics",
+      "expected_intake": { "semester_1": 20, "semester_2": null },
+      "tuition_per_semester": 32500,
+      "special_requirements": []
+    },
+    {
+      "school": "Agro-Industry",
+      "degree": "B.Sc. and B.B.A.",
+      "programme": "Agri-Food Logistics and Logistics and Supply Chain Management (Dual Bachelor's Degree Programmes; 4 years)",
+      "expected_intake": { "semester_1": 20, "semester_2": null },
+      "tuition_per_semester": 44200,
+      "special_requirements": []
+    },
+    {
+      "school": "Cosmetic Science",
+      "degree": "B.Sc.",
+      "programme": "Beauty Technology",
+      "expected_intake": { "semester_1": 5, "semester_2": null },
+      "tuition_per_semester": 45500,
+      "special_requirements": []
+    },
+    {
+      "school": "Cosmetic Science",
+      "degree": "B.Sc.",
+      "programme": "Cosmetic Science",
+      "expected_intake": { "semester_1": 10, "semester_2": null },
+      "tuition_per_semester": 45500,
+      "special_requirements": [
+        "Submit a brief 3 to 5-minute self-introduction video in English describing your passion for Cosmetic Science and presenting your ideas or work related to cosmetics and your creativity.",
+        "Special consideration is given to submissions that detail achievements in competitions related to Cosmetic Science."
+      ]
+    },
+    {
+      "school": "Health Science",
+      "degree": "B.Sc.",
+      "programme": "Environmental Health",
+      "expected_intake": { "semester_1": 5, "semester_2": 5 },
+      "tuition_per_semester": 39000,
+      "special_requirements": [
+        "Must pass an interview with the programme committee."
+      ]
+    },
+    {
+      "school": "Health Science",
+      "degree": "B.Sc.",
+      "programme": "Occupational Health and Safety",
+      "expected_intake": { "semester_1": 5, "semester_2": null },
+      "tuition_per_semester": 39000,
+      "special_requirements": []
+    },
+    {
+      "school": "Health Science",
+      "degree": "B.P.H.",
+      "programme": "Public Health",
+      "expected_intake": { "semester_1": 10, "semester_2": null },
+      "tuition_per_semester": 32500,
+      "special_requirements": [
+        "Must demonstrate proficiency in Thai listening, speaking, reading and writing.",
+        "Must pass an interview with the programme committee."
+      ]
+    },
+    {
+      "school": "Health Science",
+      "degree": "B.Sc.",
+      "programme": "Sports and Health Science",
+      "expected_intake": { "semester_1": 5, "semester_2": null },
+      "tuition_per_semester": 32500,
+      "special_requirements": []
+    },
+    {
+      "school": "Applied Digital Technology",
+      "degree": "B.Eng.",
+      "programme": "Computer Engineering",
+      "expected_intake": { "semester_1": 10, "semester_2": null },
+      "tuition_per_semester": 36400,
+      "special_requirements": []
+    },
+    {
+      "school": "Applied Digital Technology",
+      "degree": "B.Sc.",
+      "programme": "Digital Technology for Business Innovation",
+      "expected_intake": { "semester_1": 5, "semester_2": null },
+      "tuition_per_semester": 36400,
+      "special_requirements": [
+        "Must demonstrate English proficiency in listening, speaking, reading and writing.",
+        "The statement of purpose must describe interests and abilities in digital technology for business innovation."
+      ]
+    },
+    {
+      "school": "Applied Digital Technology",
+      "degree": "B.Sc.",
+      "programme": "Multimedia Technology and Animation",
+      "expected_intake": { "semester_1": 10, "semester_2": null },
+      "tuition_per_semester": 41600,
+      "special_requirements": [
+        "Submit a brief 3-minute self-introduction video clip in English describing your multimedia work and your passion for the programme. Upload the video to YouTube and submit the URL via the online application system."
+      ]
+    },
+    {
+      "school": "Applied Digital Technology",
+      "degree": "B.Eng.",
+      "programme": "Digital and Communication Engineering",
+      "expected_intake": { "semester_1": 5, "semester_2": null },
+      "tuition_per_semester": 36400,
+      "special_requirements": [
+        "Must achieve a minimum score of 70% or reach the 70th percentile in Mathematics, English, and Science."
+      ]
+    },
+    {
+      "school": "Applied Digital Technology",
+      "degree": "B.Eng.",
+      "programme": "Software Engineering",
+      "expected_intake": { "semester_1": 40, "semester_2": null },
+      "tuition_per_semester": 39000,
+      "special_requirements": []
+    },
+    {
+      "school": "Integrative Medicine",
+      "degree": "B.PT.",
+      "programme": "Physical Therapy",
+      "expected_intake": { "semester_1": 5, "semester_2": null },
+      "tuition_per_semester": 42900,
+      "special_requirements": [
+        "Must pass an interview with the programme committee."
+      ]
+    },
+    {
+      "school": "Integrative Medicine",
+      "degree": "B.ATM.",
+      "programme": "Applied Thai Traditional Medicine",
+      "expected_intake": { "semester_1": 1, "semester_2": null },
+      "tuition_per_semester": 42900,
+      "special_requirements": [
+        "Must demonstrate excellent proficiency in Thai reading and writing.",
+        "Must pass an interview with the programme committee."
+      ]
+    },
+    {
+      "school": "Integrative Medicine",
+      "degree": "B.CM.",
+      "programme": "Traditional Chinese Medicine",
+      "expected_intake": { "semester_1": 3, "semester_2": null },
+      "tuition_per_semester": null,
+      "tuition_schedule": [
+        { "period": "Year 1", "amount_per_semester": 39000 },
+        { "period": "Year 2 - 5 (Semester 1)", "amount_per_semester": 78000 },
+        {
+          "period": "Year 5 (Semester 2) - Year 6 (Semester 1)",
+          "amount_per_semester": 13000,
+          "note": "13,000 THB per semester is paid to MFU for these 2 semesters. Students additionally pay tuition to the partner university in the People's Republic of China at the rate stipulated by that university."
+        },
+        { "period": "Year 6 (Semester 2)", "amount_per_semester": 78000 }
+      ],
+      "special_requirements": [
+        "Must demonstrate proficiency in Thai listening, speaking, reading and writing, and must be prepared to participate in an interview conducted in Thai.",
+        "Must pass an interview with the programme committee."
+      ]
+    },
+    {
+      "school": "Law",
+      "degree": "LL.B.",
+      "programme": "Laws",
+      "expected_intake": { "semester_1": 5, "semester_2": null },
+      "tuition_per_semester": 32500,
+      "special_requirements": [
+        "Must demonstrate proficiency in Thai listening, speaking, reading and writing.",
+        "Must pass an interview with the programme committee."
+      ]
+    },
+    {
+      "school": "Liberal Arts",
+      "degree": "B.A.",
+      "programme": "English",
+      "expected_intake": { "semester_1": 20, "semester_2": null },
+      "tuition_per_semester": 32500,
+      "special_requirements": []
+    },
+    {
+      "school": "Liberal Arts",
+      "degree": "B.A.",
+      "programme": "Thai Language and Culture for Foreigners",
+      "expected_intake": { "semester_1": 40, "semester_2": null },
+      "tuition_per_semester": 35000,
+      "special_requirements": [
+        "Must pass an interview with the programme committee."
+      ]
+    },
+    {
+      "school": "Management",
+      "degree": "B.Acc.",
+      "programme": "Accounting",
+      "expected_intake": { "semester_1": 15, "semester_2": null },
+      "tuition_per_semester": 39000,
+      "special_requirements": [
+        "Must pass an interview with the programme committee."
+      ]
+    },
+    {
+      "school": "Management",
+      "degree": "B.B.A.",
+      "programme": "Aviation Business Management",
+      "expected_intake": { "semester_1": 10, "semester_2": null },
+      "tuition_per_semester": 52000,
+      "special_requirements": []
+    },
+    {
+      "school": "Management",
+      "degree": "B.B.A.",
+      "programme": "Business Administration",
+      "expected_intake": { "semester_1": 50, "semester_2": 50 },
+      "tuition_per_semester": 35750,
+      "special_requirements": [
+        "Must have all grades for mathematics and English courses reflected on the official transcript.",
+        "Submit an essay on the topic of Expected Business Management, not exceeding one A4 page, along with a separate self-introduction document (Portfolio / Statement of Purpose)."
+      ]
+    },
+    {
+      "school": "Management",
+      "degree": "B.Econ.",
+      "programme": "Economics",
+      "expected_intake": { "semester_1": 10, "semester_2": null },
+      "tuition_per_semester": 39000,
+      "special_requirements": []
+    },
+    {
+      "school": "Management",
+      "degree": "B.B.A.",
+      "programme": "Hospitality Business Management",
+      "expected_intake": { "semester_1": 30, "semester_2": null },
+      "tuition_per_semester": 35750,
+      "special_requirements": []
+    },
+    {
+      "school": "Management",
+      "degree": "B.B.A.",
+      "programme": "Logistics and Supply Chain Management",
+      "expected_intake": { "semester_1": 20, "semester_2": null },
+      "tuition_per_semester": 39000,
+      "special_requirements": [
+        "For applicants with a GED qualification, the Mathematical Reasoning subject must have a score of 150 or higher."
+      ]
+    },
+    {
+      "school": "Management",
+      "degree": "B.B.A.",
+      "programme": "Tourism Business and Events",
+      "expected_intake": { "semester_1": 30, "semester_2": 30 },
+      "tuition_per_semester": 39000,
+      "special_requirements": []
+    },
+    {
+      "school": "Nursing",
+      "degree": "B.N.S.",
+      "programme": "Nursing Science",
+      "expected_intake": { "semester_1": 6, "semester_2": null },
+      "tuition_per_semester": 49400,
+      "special_requirements": [
+        "Must pass an interview with the programme committee."
+      ]
+    },
+    {
+      "school": "Science",
+      "degree": "B.Sc.",
+      "programme": "Applied Chemistry",
+      "expected_intake": { "semester_1": 10, "semester_2": null },
+      "tuition_per_semester": 32500,
+      "special_requirements": []
+    },
+    {
+      "school": "Science",
+      "degree": "B.Sc.",
+      "programme": "Biosciences",
+      "expected_intake": { "semester_1": 5, "semester_2": null },
+      "tuition_per_semester": 32500,
+      "special_requirements": []
+    },
+    {
+      "school": "Science",
+      "degree": "B.Sc.",
+      "programme": "Biomedical Sciences and Data Analytics",
+      "expected_intake": { "semester_1": 5, "semester_2": null },
+      "tuition_per_semester": null,
+      "tuition_note": "TBA - not yet announced in the guide.",
+      "special_requirements": []
+    },
+    {
+      "school": "Science",
+      "degree": "B.Eng.",
+      "programme": "Materials Engineering",
+      "expected_intake": { "semester_1": 10, "semester_2": null },
+      "tuition_per_semester": 39000,
+      "special_requirements": []
+    },
+    {
+      "school": "Sinology",
+      "degree": "B.A.",
+      "programme": "Chinese Studies",
+      "expected_intake": { "semester_1": 5, "semester_2": null },
+      "tuition_per_semester": 49400,
+      "special_requirements": [
+        "Must have a Chinese Proficiency Test (HSK) Level 4 with a score of 180 or above. Exceptions may be made for applicants whose language test results have expired, those who have completed at least 12 credits of Chinese language courses, or those who have studied Chinese at a school or language institute and can provide official proof or certification from that institution.",
+        "Must pass an interview with the programme committee."
+      ]
+    },
+    {
+      "school": "Social Innovation",
+      "degree": "B.A.",
+      "programme": "International Development",
+      "expected_intake": { "semester_1": 5, "semester_2": null },
+      "tuition_per_semester": 45500,
+      "special_requirements": [
+        "Must pass an interview with the programme committee."
+      ]
+    }
+  ],
+
+  "master": [
+    {
+      "school": "Agro-Industry",
+      "degree": "M.Sc.",
+      "programme": "Innovative Food Science and Technology",
+      "plans": ["A1", "A2", "B"],
+      "tuition_per_semester": 45500,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    },
+    {
+      "school": "Agro-Industry",
+      "degree": "M.Sc.",
+      "programme": "Postharvest Technology and Innovation",
+      "plan_options": [
+        { "plan": "1.1", "tuition_per_semester": 45500, "class_schedule": "Mon-Fri" },
+        { "plan": "1.2", "tuition_per_semester": 58500, "class_schedule": "Mon-Fri" }
+      ],
+      "first_semester_only": false
+    },
+    {
+      "school": "Anti-Aging and Regenerative Medicine",
+      "degree": "M.Sc.",
+      "programme": "Anti-Aging and Regenerative Medicine",
+      "plans": ["A2"],
+      "tuition_per_semester": 117000,
+      "class_schedule": "Sat-Sun (Bangkok)",
+      "first_semester_only": true
+    },
+    {
+      "school": "Anti-Aging and Regenerative Medicine",
+      "degree": "M.Sc.",
+      "programme": "Anti-Aging and Regenerative Science",
+      "plans": ["B"],
+      "tuition_per_semester": 78000,
+      "class_schedule": "Sat-Sun (Bangkok)",
+      "first_semester_only": true
+    },
+    {
+      "school": "Anti-Aging and Regenerative Medicine",
+      "degree": "M.Sc.",
+      "programme": "Dermatology",
+      "plans": ["A2"],
+      "tuition_per_semester": 117000,
+      "class_schedule": "Mon-Fri (Bangkok)",
+      "first_semester_only": true
+    },
+    {
+      "school": "Health Science",
+      "degree": "M.P.H.",
+      "programme": "Border Health Management",
+      "plans": ["A1", "A2"],
+      "duration": "1.5 years",
+      "tuition_per_semester": 69550,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    },
+    {
+      "school": "Health Science",
+      "degree": "M.Sc.",
+      "programme": "Health and Biomedical Analytics",
+      "plan_options": [
+        { "plan": "A1", "tuition_per_semester": 58500, "class_schedule": "Mon-Fri" },
+        { "plan": "A2", "tuition_per_semester": 58500, "class_schedule": "Sat-Sun" }
+      ],
+      "first_semester_only": true
+    },
+    {
+      "school": "Health Science",
+      "degree": "M.Sc.",
+      "programme": "Technology and Sustainable Environmental Management",
+      "plans": ["1.1", "1.2"],
+      "tuition_per_semester": 52000,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    },
+    {
+      "school": "Health Science",
+      "degree": "M.Sc.",
+      "programme": "Applied Sports Science and Technology",
+      "plans": ["1.1", "1.2"],
+      "tuition_per_semester": 52000,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    },
+    {
+      "school": "Applied Digital Technology",
+      "degree": "M.Eng.",
+      "programme": "Computer Engineering",
+      "plans": ["A2"],
+      "tuition_per_semester": 52000,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    },
+    {
+      "school": "Applied Digital Technology",
+      "degree": "M.Sc.",
+      "programme": "Digital Transformation Technology",
+      "plan_options": [
+        { "plan": "A1", "tuition_per_semester": 45500, "class_schedule": "Mon-Fri" },
+        { "plan": "A2", "tuition_per_semester": 52000, "class_schedule": "Mon-Fri" }
+      ],
+      "first_semester_only": false
+    },
+    {
+      "school": "Liberal Arts",
+      "degree": "M.A.",
+      "programme": "English for Professional Development",
+      "plans": ["A1", "A2", "B"],
+      "tuition_per_semester": 65000,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    },
+    {
+      "school": "Management",
+      "degree": "M.B.A.",
+      "programme": "International Logistics and Supply Chain Management",
+      "plans": ["A1", "A2", "B"],
+      "duration": "1.5 years",
+      "tuition_per_semester": 95000,
+      "class_schedule": "Sat-Sun",
+      "first_semester_only": true
+    },
+    {
+      "school": "Science",
+      "degree": "M.Sc.",
+      "programme": "Applied Chemistry",
+      "plans": ["A1", "A2"],
+      "tuition_per_semester": 45500,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    },
+    {
+      "school": "Science",
+      "degree": "M.Sc.",
+      "programme": "Biological Science",
+      "plans": ["A1"],
+      "tuition_per_semester": 45500,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    },
+    {
+      "school": "Science",
+      "degree": "M.Sc.",
+      "programme": "Materials Innovation for Sustainability",
+      "plans": ["A1", "A2"],
+      "tuition_per_semester": 45500,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    },
+    {
+      "school": "Social Innovation",
+      "degree": "M.A.",
+      "programme": "International Development",
+      "plans": ["1.2"],
+      "tuition_per_semester": 104000,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    },
+    {
+      "school": "Medicine",
+      "degree": "M.Sc.",
+      "programme": "Paraclinical Sciences",
+      "plans": ["1.1"],
+      "tuition_per_semester": 54600,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false,
+      "specialisations": [
+        { "name": "Paraclinical Sciences (Infectious Diseases)", "plan": "1.2" },
+        { "name": "Paraclinical Sciences (Pharmacology and Pharmacotherapy)", "plan": "1.2" },
+        { "name": "Paraclinical Sciences (Cancer Biology and Immunology)", "plan": "1.2" },
+        { "name": "Paraclinical Sciences (Neuroscience)", "plan": "1.2" }
+      ]
+    }
+  ],
+
+  "doctoral": [
+    {
+      "school": "Agro-Industry",
+      "degree": "Ph.D.",
+      "programme": "Innovative Food Science and Technology",
+      "plan_options": [
+        { "plan": "1.1, 2.1", "duration": "3 years", "tuition_per_semester": 45500, "class_schedule": "Mon-Fri" },
+        { "plan": "2.2", "duration": "4 years", "tuition_per_semester": 45500, "class_schedule": "Mon-Fri" }
+      ],
+      "first_semester_only": false
+    },
+    {
+      "school": "Anti-Aging and Regenerative Medicine",
+      "degree": "Ph.D.",
+      "programme": "Anti-Aging and Regenerative Medicine",
+      "plans": ["1.1"],
+      "duration": "3 years",
+      "tuition_per_semester": 143000,
+      "class_schedule": "Sat-Sun (Bangkok)",
+      "first_semester_only": false
+    },
+    {
+      "school": "Anti-Aging and Regenerative Medicine",
+      "degree": "Ph.D.",
+      "programme": "Anti-Aging and Regenerative Science",
+      "plans": ["1.1"],
+      "duration": "3 years",
+      "tuition_per_semester": 143000,
+      "class_schedule": "Sat-Sun (Bangkok)",
+      "first_semester_only": false
+    },
+    {
+      "school": "Anti-Aging and Regenerative Medicine",
+      "degree": "Ph.D.",
+      "programme": "Dermatology",
+      "plans": ["1.1"],
+      "duration": "3 years",
+      "tuition_per_semester": 143000,
+      "class_schedule": "Mon-Fri (Bangkok)",
+      "first_semester_only": false
+    },
+    {
+      "school": "Cosmetic Science",
+      "degree": "Ph.D.",
+      "programme": "Creative Innovation in Cosmetic Science",
+      "plans": ["1.1", "2.1"],
+      "tuition_per_semester": 45500,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": true
+    },
+    {
+      "school": "Health Science",
+      "degree": "Ph.D.",
+      "programme": "Public Health (Epidemiology)",
+      "plans": ["1.1", "2.1"],
+      "duration": "3 years",
+      "tuition_per_semester": 71500,
+      "class_schedule": "Sat-Sun",
+      "first_semester_only": false
+    },
+    {
+      "school": "Applied Digital Technology",
+      "degree": "Ph.D.",
+      "programme": "Computer Engineering",
+      "plan_options": [
+        { "plan": "2.1", "duration": "3 years", "tuition_per_semester": 58500, "class_schedule": "Mon-Fri" },
+        { "plan": "2.2", "duration": "5 years", "tuition_per_semester": 58500, "class_schedule": "Mon-Fri" }
+      ],
+      "first_semester_only": false
+    },
+    {
+      "school": "Liberal Arts",
+      "degree": "Ph.D.",
+      "programme": "English for Professional Development",
+      "plans": ["1.1", "2.1"],
+      "duration": "3 years",
+      "tuition_per_semester": 97500,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    },
+    {
+      "school": "Science",
+      "degree": "Ph.D.",
+      "programme": "Applied Chemistry",
+      "plan_options": [
+        { "plan": "1.1", "duration": "3 years", "tuition_per_semester": 45500, "class_schedule": "Mon-Fri" },
+        { "plan": "1.2, 2.2", "duration": "4 years", "tuition_per_semester": 45500, "class_schedule": "Mon-Fri" }
+      ],
+      "first_semester_only": false
+    },
+    {
+      "school": "Science",
+      "degree": "Ph.D.",
+      "programme": "Biological Science",
+      "plan_options": [
+        { "plan": "1.1", "duration": "3 years", "tuition_per_semester": 45500, "class_schedule": "Mon-Fri" },
+        { "plan": "1.2", "duration": "5 years", "tuition_per_semester": 45500, "class_schedule": "Mon-Fri" }
+      ],
+      "first_semester_only": false
+    },
+    {
+      "school": "Science",
+      "degree": "Ph.D.",
+      "programme": "Materials Innovation for Sustainability",
+      "plans": ["1.1"],
+      "duration": "3 years",
+      "tuition_per_semester": 45500,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    },
+    {
+      "school": "Dentistry",
+      "degree": "Ph.D.",
+      "programme": "Dentistry",
+      "plans": ["1.1"],
+      "duration": "3 years",
+      "tuition_per_semester": 97500,
+      "class_schedule": "Mon-Fri",
+      "first_semester_only": false
+    }
+  ],
+
+  "study_plan_definitions": {
+    "master": {
+      "A1": "Thesis (not less than 36 credits), no course work",
+      "A2": "Thesis (24 credits) with course work (12 credits)",
+      "B": "Course work (30 credits) with Independent Study (IS) (6 credits)",
+      "1.1": "Thesis",
+      "1.2": "Thesis with course work",
+      "2": "Course work with Independent Study (IS) or Special Project",
+      "note": "Credit requirements may vary depending on the programme."
+    },
+    "doctoral": {
+      "1.1": "Dissertation only (not less than 48 credits) - for master's degree graduates",
+      "1.2": "Dissertation only (not less than 72 credits) - for bachelor's degree with honours graduates",
+      "2.1": "Course work (not less than 12 credits) with dissertation (not less than 36 credits) - for master's degree graduates",
+      "2.2": "Course work (not less than 24 credits) with dissertation (not less than 48 credits) - for bachelor's degree with honours graduates"
+    }
+  },
+
+  "campus_note": "Students attending class in Bangkok are required to attend class at MFU Hospital, Bangkok. All other programmes are taught at the Chiang Rai campus."
+}
