@@ -60,6 +60,29 @@ export function isTextMessage(event: LineEvent): event is LineTextMessageEvent {
 const MAX_MESSAGES_PER_REPLY = 5;
 
 /**
+ * Removes the markdown the model occasionally emits despite being told not to.
+ *
+ * LINE renders plain text, so `**39,000 THB**` arrives with the asterisks
+ * showing. The system prompt forbids markdown, but a model will still slip
+ * every so often, and a stray `**` around a fee looks broken to an applicant.
+ * Stripping the few markers that actually turn up is cheap insurance the prompt
+ * alone cannot guarantee.
+ */
+export function stripMarkdown(text: string): string {
+  return (
+    text
+      // **bold** / *italic* / __bold__ / _italic_ around a run of text
+      .replace(/\*\*(.+?)\*\*/g, "$1")
+      .replace(/__(.+?)__/g, "$1")
+      .replace(/\*(.+?)\*/g, "$1")
+      // leading markdown heading marks
+      .replace(/^#{1,6}\s+/gm, "")
+      // [label](url) -> label (url)
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, "$1 ($2)")
+  );
+}
+
+/**
  * Splits an answer into separate chat bubbles.
  *
  * One long block is hard to read on a phone. Splitting on blank lines follows
@@ -70,7 +93,7 @@ const MAX_MESSAGES_PER_REPLY = 5;
  * back into the last bubble instead of being dropped.
  */
 export function splitIntoBubbles(text: string): string[] {
-  const paragraphs = text
+  const paragraphs = stripMarkdown(text)
     .split(/\n{2,}/)
     .map((p) => p.trim())
     .filter(Boolean);
