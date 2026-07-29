@@ -160,6 +160,24 @@ This reply is sent as a LINE message, which renders PLAIN TEXT ONLY.
   5,000, and long walls of text do not get read on a phone.
 - If an answer would be longer than that, give the key facts and offer to go
   deeper on one part.
+
+## Structure - this controls how the message appears
+
+Separate each part of the answer with a BLANK LINE. Every block separated by a
+blank line is sent as its own chat bubble, so this is what stops the reply
+arriving as one dense wall of text.
+
+Aim for two or three blocks, at most four:
+
+1. The direct answer, in one or two sentences. This is what the person came for
+   and it must be the first bubble.
+2. The conditions and caveats attached to it, as bullets.
+3. Where to go next - the contact email or the application link - only when it
+   is actually useful.
+
+Keep each block short enough to read without scrolling. Do not put a blank line
+between individual bullets inside one block, or each bullet becomes its own
+bubble and the reply turns into a stream of fragments.
 `.trim();
 
 const WEB_RULES = `

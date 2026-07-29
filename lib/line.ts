@@ -56,13 +56,46 @@ export function isTextMessage(event: LineEvent): event is LineTextMessageEvent {
   );
 }
 
+/** LINE accepts at most this many message objects in one reply. */
+const MAX_MESSAGES_PER_REPLY = 5;
+
 /**
- * Replies to a LINE event.
+ * Splits an answer into separate chat bubbles.
  *
- * A reply token is single-use and expires shortly after the event arrives, so
- * this has to be called within the same request that received the webhook.
+ * One long block is hard to read on a phone. Splitting on blank lines follows
+ * the shape the model already writes — a lead sentence, then the detail —
+ * so each bubble is a complete thought rather than an arbitrary slice.
+ *
+ * LINE caps a reply at five messages, so anything beyond the fourth is merged
+ * back into the last bubble instead of being dropped.
  */
-export async function reply(replyToken: string, text: string): Promise<void> {
+export function splitIntoBubbles(text: string): string[] {
+  const paragraphs = text
+    .split(/\n{2,}/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+  if (paragraphs.length === 0) return [];
+  if (paragraphs.length <= MAX_MESSAGES_PER_REPLY) {
+    return paragraphs.map((p) => p.slice(0, MAX_MESSAGE_LENGTH));
+  }
+
+  const head = paragraphs.slice(0, MAX_MESSAGES_PER_REPLY - 1);
+  const tail = paragraphs.slice(MAX_MESSAGES_PER_REPLY - 1).join("\n\n");
+  return [...head, tail].map((p) => p.slice(0, MAX_MESSAGE_LENGTH));
+}
+
+/**
+ * Replies to a LINE event, as one or more bubbles.
+ *
+ * A reply token is single-use and valid for one minute from the moment the
+ * webhook arrived, so everything — generating the answer and any deliberate
+ * delay — has to fit inside that window.
+ */
+export async function reply(
+  replyToken: string,
+  text: string | string[],
+): Promise<void> {
   const token = process.env.LINE_CHANNEL_ACCESS_TOKEN;
   if (!token) {
     throw new Error(
@@ -70,7 +103,11 @@ export async function reply(replyToken: string, text: string): Promise<void> {
     );
   }
 
-  const body = text.slice(0, MAX_MESSAGE_LENGTH);
+  const bubbles = (
+    Array.isArray(text) ? text : splitIntoBubbles(text)
+  ).slice(0, MAX_MESSAGES_PER_REPLY);
+
+  if (bubbles.length === 0) return;
 
   const response = await fetch(`${LINE_API}/message/reply`, {
     method: "POST",
@@ -80,7 +117,7 @@ export async function reply(replyToken: string, text: string): Promise<void> {
     },
     body: JSON.stringify({
       replyToken,
-      messages: [{ type: "text", text: body }],
+      messages: bubbles.map((body) => ({ type: "text", text: body })),
     }),
   });
 
