@@ -10,13 +10,19 @@ import { buildSystemPrompt, type Channel } from "@/lib/knowledge";
  * entire knowledge base is sent on every request rather than being chunked and
  * searched.
  *
+ * Flash-Lite rather than Flash, because the free tier caps the full Flash model
+ * at 20 requests per day per project — measured, not guessed. That is a demo,
+ * not a service. Flash-Lite's allowance is far larger and the task here is
+ * reading facts out of context that is already in the prompt, which is exactly
+ * what the smaller model is good at.
+ *
  * The floating "latest" alias is deliberate. A pinned version eventually stops
  * accepting new callers — `gemini-2.5-flash` already did, with a 404 that would
  * have taken the bot down. Nobody is maintaining this after handover, so
  * surviving Google's deprecations unattended matters more than pinning exact
  * behaviour. Set GEMINI_MODEL to override if a specific version is ever needed.
  */
-const MODEL = process.env.GEMINI_MODEL ?? "gemini-flash-latest";
+const MODEL = process.env.GEMINI_MODEL ?? "gemini-flash-lite-latest";
 
 /**
  * Replies are two or three sentences by design, and LINE will not show more
@@ -75,10 +81,25 @@ function isQuotaError(error: unknown): boolean {
 }
 
 /**
- * The free tier limits requests per minute, not per day, so a rate-limited
- * request usually succeeds a few seconds later. Two applicants asking at the
- * same moment is enough to trigger it, and turning that into "the assistant is
- * busy" would be giving up on a question that was seconds from being answered.
+ * True when the exhausted quota is the daily one rather than the per-minute
+ * one.
+ *
+ * The two need opposite handling. A per-minute limit clears in seconds, so
+ * retrying is worth it. A daily limit does not clear until tomorrow, so
+ * retrying only burns the LINE reply token and leaves the applicant with
+ * silence instead of an answer.
+ */
+function isDailyQuotaError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error);
+  return /PerDay|per day/i.test(message);
+}
+
+/**
+ * Backoff for the per-minute limit only — see isDailyQuotaError above.
+ *
+ * Two applicants asking at the same moment is enough to trip the per-minute
+ * cap, and turning that into "the assistant is busy" would abandon a question
+ * that was seconds from being answered.
  *
  * Kept short deliberately: a LINE reply token expires, so it is better to
  * answer honestly that we are busy than to hold the request until the token is
@@ -133,7 +154,9 @@ export async function answer(
     } catch (error) {
       if (!isQuotaError(error)) throw error;
 
-      if (attempt < RETRY_DELAYS_MS.length) {
+      // Retrying a daily limit cannot succeed, so fall through immediately
+      // rather than making the applicant wait for a foregone conclusion.
+      if (!isDailyQuotaError(error) && attempt < RETRY_DELAYS_MS.length) {
         console.warn(
           `[gemini] rate limited, retrying in ${RETRY_DELAYS_MS[attempt]}ms`,
         );

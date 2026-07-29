@@ -65,7 +65,15 @@ const hasForeign = (s) =>
 let pass = 0;
 let fail = 0;
 
-for (const c of CASES) {
+// The free tier limits requests per minute, so firing five questions back to
+// back rate-limits the suite against itself and every case "fails" with the
+// busy message. Spacing them out measures the bot rather than the quota.
+const GAP_MS = Number(process.env.TEST_GAP_MS ?? 8000);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+for (const [index, c] of CASES.entries()) {
+  if (index > 0) await sleep(GAP_MS);
+
   const res = await fetch(URL, {
     method: "POST",
     headers: { "content-type": "application/json; charset=utf-8" },
