@@ -15,8 +15,12 @@
  * reports that it cannot read the question.
  */
 
-const PORT = process.argv[2] ?? process.env.PORT ?? "3000";
-const URL = `http://localhost:${PORT}/api/chat`;
+// Accepts a port for local testing, or a full URL to check a deployment:
+//   npm run test:bot 3000
+//   npm run test:bot https://mfu-admission-bot-chi.vercel.app
+const TARGET = process.argv[2] ?? process.env.PORT ?? "3000";
+const BASE = TARGET.startsWith("http") ? TARGET : `http://localhost:${TARGET}`;
+const URL = `${BASE.replace(/\/$/, "")}/api/chat`;
 
 const CASES = [
   {

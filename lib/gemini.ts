@@ -75,6 +75,20 @@ function isQuotaError(error: unknown): boolean {
 }
 
 /**
+ * The free tier limits requests per minute, not per day, so a rate-limited
+ * request usually succeeds a few seconds later. Two applicants asking at the
+ * same moment is enough to trigger it, and turning that into "the assistant is
+ * busy" would be giving up on a question that was seconds from being answered.
+ *
+ * Kept short deliberately: a LINE reply token expires, so it is better to
+ * answer honestly that we are busy than to hold the request until the token is
+ * dead and the applicant gets nothing at all.
+ */
+const RETRY_DELAYS_MS = [2000, 5000];
+
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
  * Answers an applicant's question from the admission guides and the
  * staff-maintained Drive notes.
  */
@@ -84,39 +98,52 @@ export async function answer(
 ): Promise<AnswerResult> {
   const system = await buildSystemPrompt(channel);
 
+  const request = {
+    model: MODEL,
+    contents: [
+      ...history.map((turn) => ({
+        // Gemini calls the assistant side "model", not "assistant".
+        role: turn.role === "assistant" ? "model" : "user",
+        parts: [{ text: turn.content }],
+      })),
+      { role: "user", parts: [{ text: question }] },
+    ],
+    config: {
+      systemInstruction: system.text,
+      maxOutputTokens: MAX_OUTPUT_TOKENS,
+      // The answer is a lookup against context the model already has, so
+      // near-deterministic output is what we want — the same question should
+      // not produce a different fee twice.
+      temperature: 0.2,
+      // This is a lookup against context the model already has, not a
+      // reasoning task, so thinking is held to the minimum. Note the older
+      // `thinkingBudget: 0` form is rejected with a 400 on Gemini 3.x — the
+      // level enum is the supported way to turn it down. Leaving it unset is
+      // not an option either: thinking then eats the output budget and the
+      // reply comes back truncated mid-sentence.
+      thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
+    },
+  };
+
   let response;
-  try {
-    response = await getClient().models.generateContent({
-      model: MODEL,
-      contents: [
-        ...history.map((turn) => ({
-          // Gemini calls the assistant side "model", not "assistant".
-          role: turn.role === "assistant" ? "model" : "user",
-          parts: [{ text: turn.content }],
-        })),
-        { role: "user", parts: [{ text: question }] },
-      ],
-      config: {
-        systemInstruction: system.text,
-        maxOutputTokens: MAX_OUTPUT_TOKENS,
-        // The answer is a lookup against context the model already has, so
-        // near-deterministic output is what we want — the same question should
-        // not produce a different fee twice.
-        temperature: 0.2,
-        // This is a lookup against context the model already has, not a
-        // reasoning task, so thinking is held to the minimum. Note the older
-        // `thinkingBudget: 0` form is rejected with a 400 on Gemini 3.x — the
-        // level enum is the supported way to turn it down. Leaving it unset is
-        // not an option either: thinking then eats the output budget and the
-        // reply comes back truncated mid-sentence.
-        thinkingConfig: { thinkingLevel: ThinkingLevel.MINIMAL },
-      },
-    });
-  } catch (error) {
-    if (isQuotaError(error)) {
-      // The applicant gets a sentence they can act on rather than a stack
-      // trace; the operator still gets the detail in the logs.
-      console.error("[gemini] quota exhausted", error);
+  for (let attempt = 0; ; attempt++) {
+    try {
+      response = await getClient().models.generateContent(request);
+      break;
+    } catch (error) {
+      if (!isQuotaError(error)) throw error;
+
+      if (attempt < RETRY_DELAYS_MS.length) {
+        console.warn(
+          `[gemini] rate limited, retrying in ${RETRY_DELAYS_MS[attempt]}ms`,
+        );
+        await sleep(RETRY_DELAYS_MS[attempt]);
+        continue;
+      }
+
+      // Still limited after the retries. The applicant gets a sentence they
+      // can act on rather than a stack trace; the detail stays in the logs.
+      console.error("[gemini] quota exhausted after retries", error);
       return {
         text: QUOTA_MESSAGE,
         driveDocumentCount: system.driveDocumentCount,
@@ -124,7 +151,6 @@ export async function answer(
         outputTokens: 0,
       };
     }
-    throw error;
   }
 
   const usage = response.usageMetadata;
