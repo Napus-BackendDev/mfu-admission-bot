@@ -6,6 +6,7 @@ import {
   invalidateDriveCache,
   isDriveConfigured,
 } from "@/lib/drive";
+import { isMemoryConfigured } from "@/lib/memory";
 
 export const runtime = "nodejs";
 
@@ -25,6 +26,11 @@ export async function GET() {
   return NextResponse.json({
     gemini: {
       configured: Boolean(process.env.GEMINI_API_KEY),
+    },
+    conversationMemory: {
+      configured: isMemoryConfigured(),
+      ttlDays: 30,
+      recentTurnsPerUser: 8,
     },
     drive: {
       configured: isDriveConfigured(),

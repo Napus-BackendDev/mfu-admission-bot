@@ -15,13 +15,22 @@ const MAX_MESSAGE_LENGTH = 5000;
 export type LineTextMessageEvent = {
   type: "message";
   replyToken: string;
-  source: { userId?: string; type: string };
+  source: { userId?: string; groupId?: string; roomId?: string; type: string };
   message: { type: "text"; id: string; text: string };
 };
 
 type LineEvent =
   | LineTextMessageEvent
-  | { type: string; replyToken?: string; source?: { userId?: string; type: string } };
+  | {
+      type: string;
+      replyToken?: string;
+      source?: {
+        userId?: string;
+        groupId?: string;
+        roomId?: string;
+        type: string;
+      };
+    };
 
 export type LineWebhookBody = { destination?: string; events: LineEvent[] };
 

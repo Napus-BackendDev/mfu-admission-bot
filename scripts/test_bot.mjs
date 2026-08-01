@@ -62,6 +62,13 @@ const CASES = [
     note: "กรณีจาก LINE: ภาษาพม่าที่มีชื่อหลักสูตรอังกฤษต้องตอบภาษาพม่า",
   },
   {
+    q: "Wie hoch sind die Studiengebühren für Software Engineering?",
+    channel: "line",
+    expectLang: "de",
+    must: ["39,000"],
+    note: "ทุก bubble ต้องเป็นเยอรมันและห้ามมีภาษาไทยปน",
+  },
+  {
     q: "มฟล. มีสนามกอล์ฟไหม แล้วหอพักมีแอร์ทุกห้องหรือเปล่า",
     channel: "line",
     expectLang: "th",

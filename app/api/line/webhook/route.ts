@@ -2,6 +2,8 @@ import { waitUntil } from "@vercel/functions";
 import { NextResponse } from "next/server";
 
 import { answer } from "@/lib/gemini";
+import { detectLanguageCode } from "@/lib/language";
+import { loadConversation, saveConversation } from "@/lib/memory";
 import {
   isTextMessage,
   pushText,
@@ -43,7 +45,37 @@ const BUBBLE_DELAY_MS = Math.max(
 /** Generates and sends the answer for one message event. */
 async function handleEvent(event: LineTextMessageEvent): Promise<void> {
   try {
-    const result = await answer(event.message.text, { channel: "line" });
+    const conversationIdentity = event.source.userId
+      ? [
+          event.source.userId,
+          event.source.groupId ?? event.source.roomId ?? "direct",
+        ].join(":")
+      : null;
+    const memory = conversationIdentity
+      ? await loadConversation(conversationIdentity)
+      : null;
+    const languageCode = detectLanguageCode(
+      event.message.text,
+      memory?.languageCode ?? null,
+    );
+    const result = await answer(event.message.text, {
+      channel: "line",
+      history: memory?.turns ?? [],
+      languageHint: languageCode,
+    });
+
+    if (conversationIdentity) {
+      await saveConversation(conversationIdentity, {
+        languageCode:
+          languageCode === "und" ? memory?.languageCode ?? null : languageCode,
+        turns: [
+          ...(memory?.turns ?? []),
+          { role: "user", content: event.message.text },
+          { role: "assistant", content: result.text },
+        ],
+        updatedAt: new Date().toISOString(),
+      });
+    }
 
     if (REPLY_DELAY_MS > 0) await sleep(REPLY_DELAY_MS);
 

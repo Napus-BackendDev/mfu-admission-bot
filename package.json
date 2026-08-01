@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "@google/genai": "^2.13.0",
+    "@upstash/redis": "^1.38.1",
     "@vercel/functions": "^3.7.6",
+    "franc-min": "^6.2.0",
     "googleapis": "^173.0.0",
     "next": "^16.2.12",
     "react": "^19.2.8",

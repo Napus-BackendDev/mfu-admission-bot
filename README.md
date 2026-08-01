@@ -178,6 +178,22 @@ curl http://localhost:3000/api/status
 
 ## เชื่อม LINE
 
+### Conversation memory (แนะนำสำหรับใช้งานจริง)
+
+LINE แต่ละ webhook ไม่มีประวัติแชทติดมาด้วย ระบบจึงใช้ Upstash Redis เพื่อจำ
+ภาษา หลักสูตรที่สนใจ และ 8 ข้อความล่าสุดของแต่ละผู้ใช้เป็นเวลา 30 วัน
+
+1. เปิด Vercel Marketplace → Upstash → Redis → เลือก Free plan
+2. เชื่อม Redis database เข้ากับ Vercel project นี้
+3. ตรวจว่ามี `UPSTASH_REDIS_REST_URL`/`UPSTASH_REDIS_REST_TOKEN` หรือ
+   `KV_REST_API_URL`/`KV_REST_API_TOKEN` — ระบบรองรับทั้งสองรูปแบบ
+4. สร้าง `CONVERSATION_HASH_SECRET` เป็นข้อความสุ่มยาว ๆ ใน Environment Variables
+5. Redeploy แล้วเปิด `/api/status` — `conversationMemory.configured` ต้องเป็น `true`
+
+ระบบ hash LINE user ID ก่อนใช้เป็น Redis key, เก็บเพียง 8 turns ล่าสุด และลบ
+อัตโนมัติหลังไม่มีการใช้งาน 30 วัน หาก Redis ไม่พร้อม บอทยังตอบได้ตามปกติแต่จะ
+ไม่มีความจำข้ามข้อความ
+
 ### 1. สร้าง LINE Official Account
 
 1. เข้า <https://developers.line.biz/console/> ล็อกอินด้วยบัญชี LINE
