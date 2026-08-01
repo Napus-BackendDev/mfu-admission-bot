@@ -55,6 +55,13 @@ const CASES = [
     note: "ภาษาญี่ปุ่นต้องตอบภาษาญี่ปุ่น ไม่ใช่ภาษาไทย",
   },
   {
+    q: "School of Science ရဲ့ Bioscience ဘွဲ့ရပြီးရင် ဘယ်လို career field တွေမှာ အလုပ်လုပ်နိုင်ပါသလဲ။",
+    channel: "line",
+    expectLang: "my",
+    must: ["interadmission@mfu.ac.th"],
+    note: "กรณีจาก LINE: ภาษาพม่าที่มีชื่อหลักสูตรอังกฤษต้องตอบภาษาพม่า",
+  },
+  {
     q: "มฟล. มีสนามกอล์ฟไหม แล้วหอพักมีแอร์ทุกห้องหรือเปล่า",
     channel: "line",
     expectLang: "th",
@@ -65,6 +72,7 @@ const CASES = [
 
 const isThai = (s) => /[฀-๿]/.test(s);
 const isJapanese = (s) => /[ぁ-んァ-ヶ]/.test(s);
+const isBurmese = (s) => /[က-႟]/.test(s);
 // Han characters, Hangul, Hiragana/Katakana, Cyrillic — none belong in a Thai
 // or English reply, so any hit is the third-language leak we saw in testing.
 const hasForeign = (s) =>
@@ -110,13 +118,15 @@ for (const [index, c] of CASES.entries()) {
       ? gotThai
       : c.expectLang === "ja"
         ? isJapanese(data.text) && !gotThai
+        : c.expectLang === "my"
+          ? isBurmese(data.text) && !gotThai
         : !gotThai;
   checks.push([`ตอบเป็นภาษา ${c.expectLang}`, langOK]);
 
   for (const m of c.must) checks.push([`มี "${m}"`, data.text.includes(m)]);
   // Japanese is expected to contain Japanese script; the foreign-script check
   // is for Thai and English cases where such leakage would be a real failure.
-  if (c.expectLang !== "ja") {
+  if (c.expectLang !== "ja" && c.expectLang !== "my") {
     checks.push(["ไม่มีภาษาแปลกปลอม", !hasForeign(data.text)]);
   }
   checks.push(["ไม่มี markdown (LINE)", !/\*\*|^#{1,3} |^\s*\|/m.test(data.text)]);

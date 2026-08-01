@@ -109,6 +109,57 @@ const RETRY_DELAYS_MS = [2000, 5000];
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+type ScriptRule = {
+  name: string;
+  language: string;
+  pattern: RegExp;
+};
+
+// Non-Latin scripts are deterministic signals even when an applicant mixes in
+// English programme names. This guard prevents the English source material or
+// Thai university context from pulling the reply into the wrong language.
+const SCRIPT_RULES: ScriptRule[] = [
+  { name: "Myanmar", language: "Burmese", pattern: /\p{Script=Myanmar}/gu },
+  { name: "Thai", language: "Thai", pattern: /\p{Script=Thai}/gu },
+  {
+    name: "Japanese",
+    language: "Japanese",
+    pattern: /[\p{Script=Hiragana}\p{Script=Katakana}]/gu,
+  },
+  { name: "Korean", language: "Korean", pattern: /\p{Script=Hangul}/gu },
+  { name: "Han", language: "Chinese", pattern: /\p{Script=Han}/gu },
+  { name: "Arabic", language: "the language used by the applicant", pattern: /\p{Script=Arabic}/gu },
+  { name: "Cyrillic", language: "the language used by the applicant", pattern: /\p{Script=Cyrillic}/gu },
+  { name: "Devanagari", language: "the language used by the applicant", pattern: /\p{Script=Devanagari}/gu },
+];
+
+export function buildLanguageGuard(message: string): string {
+  const detected = SCRIPT_RULES
+    .map((rule) => ({ ...rule, count: message.match(rule.pattern)?.length ?? 0 }))
+    .filter((rule) => rule.count > 0)
+    .sort((a, b) => b.count - a.count)[0];
+
+  if (detected) {
+    return `
+# MANDATORY OUTPUT LANGUAGE FOR THIS REQUEST
+
+The applicant's latest message contains ${detected.name} script. Answer this
+request entirely in ${detected.language}. English programme names, degree
+abbreviations and email addresses may remain unchanged. Do not answer in Thai
+unless the detected language above is Thai. This request-specific rule
+overrides any language implied by the university name or reference documents.
+`.trim();
+  }
+
+  return `
+# MANDATORY OUTPUT LANGUAGE FOR THIS REQUEST
+
+Identify the exact language of the applicant's latest message and answer
+entirely in that language. Do not default to Thai. English programme names,
+degree abbreviations and email addresses may remain unchanged.
+`.trim();
+}
+
 /**
  * Answers an applicant's question from the admission guides and the
  * staff-maintained Drive notes.
@@ -118,6 +169,7 @@ export async function answer(
   { channel, history = [] }: { channel: Channel; history?: Turn[] },
 ): Promise<AnswerResult> {
   const system = await buildSystemPrompt(channel);
+  const languageGuard = buildLanguageGuard(question);
 
   const request = {
     model: MODEL,
@@ -130,7 +182,9 @@ export async function answer(
       { role: "user", parts: [{ text: question }] },
     ],
     config: {
-      systemInstruction: system.text,
+      // Kept at the very end so the per-request language decision is closer to
+      // generation than the large English-language knowledge base.
+      systemInstruction: `${system.text}\n\n${languageGuard}`,
       maxOutputTokens: MAX_OUTPUT_TOKENS,
       // The answer is a lookup against context the model already has, so
       // near-deterministic output is what we want — the same question should
