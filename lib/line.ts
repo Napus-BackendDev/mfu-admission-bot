@@ -149,3 +149,30 @@ export async function reply(
     throw new Error(`LINE reply failed (${response.status}): ${detail}`);
   }
 }
+
+/** Sends one text bubble after the reply token has already been consumed. */
+export async function pushText(to: string, text: string): Promise<void> {
+  const token = process.env.LINE_CHANNEL_ACCESS_TOKEN;
+  if (!token) {
+    throw new Error(
+      "LINE_CHANNEL_ACCESS_TOKEN is not set. See README.md for how to get one.",
+    );
+  }
+
+  const body = stripMarkdown(text).trim().slice(0, MAX_MESSAGE_LENGTH);
+  if (!body) return;
+
+  const response = await fetch(`${LINE_API}/message/push`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ to, messages: [{ type: "text", text: body }] }),
+  });
+
+  if (!response.ok) {
+    const detail = await response.text();
+    throw new Error(`LINE push failed (${response.status}): ${detail}`);
+  }
+}

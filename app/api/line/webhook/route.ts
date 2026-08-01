@@ -4,7 +4,9 @@ import { NextResponse } from "next/server";
 import { answer } from "@/lib/gemini";
 import {
   isTextMessage,
+  pushText,
   reply,
+  splitIntoBubbles,
   verifySignature,
   type LineTextMessageEvent,
   type LineWebhookBody,
@@ -32,6 +34,12 @@ const REPLY_DELAY_MS = Math.min(
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+/** A short typing-like pause between separate LINE chat bubbles. */
+const BUBBLE_DELAY_MS = Math.max(
+  0,
+  Number(process.env.LINE_BUBBLE_DELAY_MS ?? 3000),
+);
+
 /** Generates and sends the answer for one message event. */
 async function handleEvent(event: LineTextMessageEvent): Promise<void> {
   try {
@@ -39,9 +47,21 @@ async function handleEvent(event: LineTextMessageEvent): Promise<void> {
 
     if (REPLY_DELAY_MS > 0) await sleep(REPLY_DELAY_MS);
 
-    // Passing the raw text lets the LINE client split it into bubbles on
-    // paragraph boundaries, which is how the model already structures answers.
-    await reply(event.replyToken, result.text);
+    const bubbles = splitIntoBubbles(result.text);
+
+    // A reply token can be used only once. Send the first bubble with it, then
+    // use push messages for the remaining bubbles so each one can have its own
+    // delay. Events without a userId cannot be pushed to, so retain the old
+    // single-call behaviour for those uncommon cases.
+    if (bubbles.length > 1 && event.source.userId) {
+      await reply(event.replyToken, [bubbles[0]]);
+      for (const bubble of bubbles.slice(1)) {
+        if (BUBBLE_DELAY_MS > 0) await sleep(BUBBLE_DELAY_MS);
+        await pushText(event.source.userId, bubble);
+      }
+    } else {
+      await reply(event.replyToken, bubbles);
+    }
   } catch (error) {
     console.error("[line] failed to answer", error);
     try {
